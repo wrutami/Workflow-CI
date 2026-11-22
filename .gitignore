@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+mlruns/
+mlartifacts/
+MLProject/last_run_id.txt
