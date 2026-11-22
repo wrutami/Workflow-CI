@@ -76,7 +76,8 @@ jobs:
       - name: Build Docker Model
         if: env.DOCKER_HUB_USERNAME != ''
         working-directory: MLProject
-        run: mlflow models build-docker --model-uri "runs:/$RUN_ID/model" --name "$IMAGE_NAME"
+        # env-manager local: base image python:3.12.7-slim (mode virtualenv bawaan memasang Python 3.9 yang gagal dengan get-pip terbaru)
+        run: mlflow models build-docker --model-uri "runs:/$RUN_ID/model" --name "$IMAGE_NAME" --env-manager local
 
       - name: Log in to Docker Hub
         if: env.DOCKER_HUB_USERNAME != ''
